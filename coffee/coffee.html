@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커피 제조하기</title>
+</head>
+<body>
+    <div class="container">
+        <div class="material">
+            <button onclick="userSave('에스프레소');">에스프레소</button>
+            <button onclick="userSave('따뜻한 물')">따뜻한 물</button>
+            <button onclick="userSave('스팀우유')">스팀우유</button>
+            <button onclick="userSave('우유')">우유</button>
+            <button onclick="userSave('우유거품')">우유거품</button>
+            <button onclick="userSave('초코시럽')">초코시럽</button>
+            <button onclick="userSave('휘핑크림')">휘핑크림</button>
+            <button onclick="userSave('차가운 물')">차가운 물</button>
+            <button onclick="userSave('얼음')">얼음</button>
+            <button onclick="userSave('설탕시럽')">설탕시럽</button>
+        </div>
+
+        <button style="margin-top: 40px;" onclick="make()">제조</button>
+    </div>
+
+
+    <script>
+
+    /*
+        1. 사용자가 만들고 싶은 음료재료를 N개를 선택한다.
+        2. 선택한 재료를 배열에 저장한다.
+        3. 선택이 다 되면 제조버튼을 누른면 이벤트가 발생한다.
+        4. 컴퓨터는 사용자가 누른 재료와 만들어논 정보를 찾는다.
+        5. 정보가 있으면 알림창으로 주문한 음료를 건네준다. 없으면 다른카페가라고 알려준다.
+    */
+
+    const coffeeList = [
+        {
+            name: '에스프레소',
+            material: ['에스프레소']
+        },
+        {
+            name: '아이스 에스프레소',
+            material: ['에스프레소','얼음']
+        },
+        {
+            name: '아메리카노',
+            material: ['따뚯한 물','에스프레소']
+        },
+        {
+            name: '아이스 아메리카노',
+            material: ['차가운 물','에스프레소','얼음']
+        },
+        {
+            name: '카페라떼',
+            material: ['스팀우유','에스프레소']
+        },
+        {
+            name: '아이스 카페라떼',
+            material: ['우유','에스프레소','얼음']
+        },
+        {
+            name: '카푸치노',
+            material: ['스팀우유','에스프레소','우유거품']
+        },
+        {
+            name: '아이스 카푸치노',
+            material: ['우유','에스프레소','우유거품','얼음']
+        },
+        {
+            name: '카페모카',
+            material: ['스팀우유','에스프레소','초코시럽','휘핑크림']
+        },
+        {
+            name: '아이스 카페모카',
+            material: ['우유','에스프레소','초코시럽','휘핑크림','얼음']
+        },
+        {
+            name: '카페 비엔나',
+            material: ['따뜻한 물','에스프레소','휘핑크림']
+        },
+        {name: '아이스 카페 비엔나', material: ['차가운 물','에스프레소','휘핑크림','얼음','설탕시럽'] },
+    ];
+
+    const userMaterial = [];
+    
+
+    function userSave(mete) {
+        userMaterial.push(mete);
+        console.log(userMaterial);
+    }
+
+    function make() { 
+         console.log(userMaterial);
+        for(let i=0; i<coffeeList.length; i++){
+            console.log(coffeeList[i]['material'])
+            if( userMaterial.length === coffeeList[i]['material'].length ){
+                for(let j=0; j<userMaterial.length; j++){
+                    // if( user)
+                }
+            }
+        }
+    }
+
+
+    </script>
+    
+</body>
+</html>

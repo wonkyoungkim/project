@@ -1,0 +1,53 @@
+.container .row .col {
+  background: #ccc;
+  border: 1px solid #000;
+}
+
+.container .row .col-sm-5 {
+  height: 50px;
+  background: gray;
+  border: 1px solid #fff;
+}
+
+.container .row .col-2 {
+  height: 50px;
+  background: peru;
+}
+
+.container .row .col-4 {
+  height: 50px;
+  background: skyblue;
+}
+
+.container .row .col-5 {
+  height: 50px;
+  background: pink;
+}
+
+.container .row .col-sm {
+  height: 50px;
+  border: 1px solid #000;
+}
+
+.container .row .col-sm:first-child {
+  background: red;
+}
+
+.container .row .col-sm:nth-child(2) {
+  background: blue;
+}
+
+.container .row .col-sm:nth-child(3) {
+  background: orange;
+}
+
+.container .row .col-sm:nth-child(4) {
+  background: yellow;
+}
+
+.container .row .col-sm:nth-child(5) {
+  background: green;
+}
+
+/* media query */
+/*# sourceMappingURL=style02.css.map */

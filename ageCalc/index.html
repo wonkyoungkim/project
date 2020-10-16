@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>night&day&red</title>
+</head>
+<body>
+    <input type="button" value="night" onclick="chageColor('black','white');">dddd
+    <input type="button" value="day" onclick="chageColor('white', 'black');">ddddd
+    <input type="button" value="nightday" onclick="
+    
+
+        if(document.querySelector('body').style.background !== 'black'){
+            chageColor('black','white');
+        } else {
+            chageColor('white', 'black');
+        }
+
+    ">
+
+    <div style="width:300px; height:300px; border:2px solid #000; position: absolute; left: 0; top: 50px;">test</div>
+    <input type="button" value="pink" ondblclick="chageBorderColor('2px solid pink');">
+    <input type="button" value="red" onclick="chageBorderColor('2px solid red');">
+
+    <input type="button" value="up" onclick="move('위아래', -10);">
+    <input type="button" value="down" onclick="move('위아래', 10);">
+
+    <input type="button" value="left" onclick="move('좌우', -20);">
+    <input type="button" value="right" onclick="move('좌우', 20);">
+    <input type="button" value="left50" onclick="move('좌우', -50);">
+    <input type="button" value="right50" onclick="move('좌우', 50);">
+    <script>
+
+        function chageColor(bColor, color){
+            document.querySelector('body').style.background = bColor;
+            document.querySelector('body').style.color = color;
+        }
+
+        function chageBorderColor(border){
+            document.querySelector('div').style.border = border;
+        }
+
+        // function upDown(delta){
+        //     var top = parseInt(document.querySelector('div').style.top);
+
+        //     console.log(top);document.querySelector('div').style.top= (top + delta) + 'px';
+        // }
+
+
+        // function leftRight(delta){
+        //     var left = parseInt(document.querySelector('div').style.left);
+
+        //     console.log(left);document.querySelector('div').style.left= (left + delta) + 'px';
+        // }
+
+        function move(direction, delta) {
+
+            if (direction == "위아래" ) {
+                var top = parseInt(document.querySelector('div').style.top);
+
+                document.querySelector('div').style.top= (top + delta) + 'px';
+            } else if (direction == "좌우" ) {
+                var left = parseInt(document.querySelector('div').style.left);
+
+                document.querySelector('div').style.left= (left + delta) + 'px';
+            } else {
+                alert('방향 오류');
+            }
+
+        }
+
+        var wkyoung = {
+            'name' : 'wonkyoung',
+            'age' : 26
+        };
+
+        var hunmin = {
+            'name' : 'hwang hunmin',
+            'age' : 38
+        }
+
+        var wkyong_age = 26;
+        var wkyong_name = 'wonkyong';
+
+
+        
+
+        console.log(wkyoung);
+        console.log(2020-wkyoung['age']);
+
+        function show1(person) {
+            document.querySelector('div').innerHTML = "제 이름은" + person.name + ", 출생년은" + (2020-person.age) + ", 나이는" + person.age + "입니다.";
+            console.log("제 이름은" + person.name + ", 출생년은" + (2020-person.age) + ", 나이는" + person.age + "입니다.");    
+        }
+
+        function show2(name, age) {
+            console.log("제 이름은" + name + ", 출생년은" + (2020-age) + ", 나이는" + age + "입니다.");    
+        }
+
+        show1(hunmin);
+
+        show2('wonkyoung', 26);
+
+        
+
+    </script>
+</body>
+</html>

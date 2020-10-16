@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>입출고 관리</title>
+    <style>
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        table {
+            margin: 0 auto;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 10px 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="container">
+        <div class="product">
+            상품이름 : <input type="text" class="name"><br>
+            상품가격 : <input type="text" class="price"><br>
+            상품수량 : <input type="text" class="vol"><br>
+            <input type="button" value="등록" onclick="add();">
+        </div>
+        <hr/>
+        <input type="text" name="text" id="search">
+        <input type="button" value="검색" onclick="search();">
+        <hr>
+        <!-- <table>
+            <tr>
+                <td></td>
+                <td>상품이름</td>
+                <td>상품가격</td>
+                <td>상품수량</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="check" id="check"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="check" id="check"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table> -->
+        <div class="product_list"></div>
+        <input type="button" value="출력" onclick="print();">
+        <input type="button" value="삭제" onclick="remove();">
+    </div>
+    
+    <script>
+        var product_list = [
+            {name: '딸기',price: 2000, vol: 4},
+            {name: '바나나',price: 4000, vol: 3},
+            {name: '귤',price: 1000, vol: 1},
+            {name: '수박',price: 6000, vol: 7},
+            {name: '복숭아',price: 7000, vol: 4}
+        ];
+
+        function add(name, price, vol){
+            var name = document.querySelector(".name").value;
+            var price = document.querySelector(".price").value;
+            var vol = document.querySelector(".vol").value;
+
+            var product = {
+                name: name,
+                price: price,
+                vol: vol
+            };
+
+            product_list.push(product);
+            console.log(product_list);
+        };
+
+
+        function print(){
+            
+            var html = "<table><tr><td></td><td>상품이름</td><td>상품가격</td>\<td>상품수량</td></tr>";
+                
+            for(i=0; i<product_list.length; i++){
+                var product = product_list[i]
+                html = html + "<tr><td><input type='checkbox' name='check'></td><td>"+product['name']+"</td><td>"+product['price']+"</td><td>"+product['vol']+"</td></tr>"
+                console.log(html);
+            };
+            
+            html = html + "</table>";
+            document.querySelector(".product_list").innerHTML = html;
+        };
+
+
+
+        function remove(){
+            console.log(document.querySelectorAll('input[type=checkbox]'));
+        };
+
+        function search(){
+           // console.log(document.querySelector('input#search').value);
+
+           const keyword = document.getElementById('search').value;
+           
+           console.log(keyword);
+           for(let i=0; i < product_list.length; i=i+1){
+               const product = product_list[i];
+
+
+                if( product.name !== keyword ) {
+                    continue;
+                }
+
+                alert("상품이름은"+product.name+"이고, 상품가격은 "+product.price+"이고, 상품 수량은 "+product.vol+"입니다");
+               
+           }
+
+           for(let i in product_list){
+               const product = product_list[i];
+                if( product.name === keyword ) {
+                    alert("상품이름은"+product.name+"이고, 상품가격은 "+product.price+"이고, 상품 수량은 "+product.vol+"입니다");
+                    break
+                }
+           }
+
+           for(let product of product_list) {
+                if( product.name === keyword ) {
+                    alert("상품이름은"+product.name+"이고, 상품가격은 "+product.price+"이고, 상품 수량은 "+product.vol+"입니다");
+                    
+                    break
+                }
+           }
+
+            
+        };
+
+        print();
+
+        var dfsdf;
+
+        if (dfsdf) {
+
+        }else{
+            
+        }
+]
+    </script>
+</body>
+</html>

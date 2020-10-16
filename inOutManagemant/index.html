@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <title>입출고 관리</title>
+</head>
+<body>
+    <div>
+        상품이름
+        <input type="text" name="name">
+    </div>
+    <div>
+        상품가격
+        <input type="text" name="price">
+    </div>
+    <div>
+        상품수량
+        <input type="text" name="vol">
+    </div>
+    <input type="button" value="등록" onclick="add();">
+    <hr/>
+    <input type="button" value="출력" onclick="print();">
+
+
+    <div>
+        <input type="text">
+        <input type="button" value="검색">
+    </div>
+
+    <div id="container">
+
+    </div>
+
+    <!-- <table>
+        <tr>
+            <td></td>
+            <td>상품이름</td>
+            <td>상품가격</td>
+            <td>수량</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="check" id="check">
+            </td>
+            <td>과자1</td>
+            <td>1000</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="check" id="check">
+            </td>
+            <td>과자2</td>
+            <td>2000</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" name="check" id="check">
+            </td>
+            <td>과자3</td>
+            <td>3000</td>
+            <td>3</td>
+        </tr>
+    </table> -->
+    <input type="button" value="삭제">
+
+    <script>
+        var product_list = [];
+
+        function add(){
+            // var name = document.querySelector("input[name=name]").value;
+            // var price = document.querySelector("input[name=price]").value;
+            // var vol = document.querySelector("input[name=vol]").value;
+
+            var product = {
+                name: document.querySelector("input[name=name]").value,
+                price: document.querySelector("input[name=price]").value,
+                vol: document.querySelector("input[name=vol]").value
+            };
+            
+            product_list.push(product);
+            console.log(product_list);
+            alert('상품이 등록되었습니다.')
+        }
+
+        function print(){
+            console.log('print');
+
+
+            var html="<table><tr><td></td><td>상품이름</td><td>상품가격</td><td>수량</td></tr>";
+
+            for(var i=0; i<product_list.length; i=i+1) {
+                var product = product_list[i]
+                html = html + " <tr><td><input type='checkbox' name='check' id='check'></td><td>"+product['name']+"</td><td>"+product['price']+"</td><td>"+product['vol']+"</td></tr>";
+                console.log(product);
+            };
+
+            html = html + "</tr></table>";
+
+            console.log(html);
+
+            document.querySelector("div#container").innerHTML = html;
+        }
+    </script>
+</body>
+</html>

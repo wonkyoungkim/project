@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보게임</title>
+    <style>
+        ul{
+            overflow: hidden;
+            margin: 0; padding: 0;
+        }
+        li{
+            float: left;
+            list-style: none;
+        }
+        li > div{
+            width: 300px; height: 300px;
+        }
+        img {
+            display: inline-block;
+            background-image: contain;
+            width: 100%;
+        }
+        button{
+            display: block;
+        }
+        .start {
+            margin: 0 auto 50px;
+            font-size: 30px;
+        }
+        #com img {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <div>
+                <button value="가위" onclick="rsp('가위');">
+                    <img src="img/scissors.png" alt="가위">
+                </button>
+            </div>
+        </li>
+        <li>
+            <div>
+                <button value="바위" onclick="rsp('바위');">
+                    <img src="img/rock.jpg" alt="바위">
+                </button>
+            </div>
+        </li>
+        <li>
+            <div>
+                <button value="보" onclick="rsp('보');">
+                    <img src="img/paper.png" alt="보">
+                </button>
+            </div>
+        </li>
+    </ul>
+    <div id="com"></div>
+    <div id="result"></div>
+
+    <script>
+        /*
+            1. 컴퓨터가 가위바위보중에 하나를 낸다.
+            2. 사용자도 가위바위보를 낸다.
+            3. 컴퓨터와 사용자의 조건을 비교하며 판단한다.
+            4. 결과를 화면에 나타낸다.
+        */
+
+        function rsp(userNumber){   
+            const rosipa = ['가위', '바위', '보'];
+            const comNum = Math.floor(Math.random() * 3);
+            const comNumber = rosipa[comNum];
+            
+            console.log('컴퓨터는 ' + comNumber + '이고, 사용자는 ' + userNumber);
+            
+            if(userNumber === '가위'){
+               if(comNumber === '가위'){
+                   console.log('비김');
+               } else if(comNumber === '바위'){
+                   console.log('짐');
+               } else {
+                   console.log('이김');
+               }
+            }
+
+            if(userNumber === '바위'){
+                if(comNumber === '가위'){
+                    console.log('이김');
+                } else if(comNumber === '바위'){
+                    console.log('비김');
+                } else {
+                    console.log('짐');
+                }
+            }
+
+            if(userNumber === '보'){
+                if(comNumber === '가위'){
+                    console.log('짐');
+                } else if(comNumber === '바위'){
+                    console.log('이김');
+                } else {
+                    console.log('비김');
+                }
+            }
+
+        };
+        
+    </script>
+
+</body>
+</html>
